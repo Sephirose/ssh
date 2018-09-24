@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.ems.dao.StockDAO">
+
+
+	<!-- resultType:返回的结果类型。 -->
+	<select id="findAll" resultType="cn.tedu.ems.entity.Stock">
+		SELECT * FROM stock
+	</select>
+
+
+
+</mapper>

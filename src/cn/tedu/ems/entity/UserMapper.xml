@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cn.tedu.ems.dao.UserDAO">
+	<select id="findByUsername" 
+		parameterType="string" 
+		resultType="cn.tedu.ems.entity.User">
+		SELECT id,username,password pwd FROM t_user
+		WHERE username = #{username}
+	</select>
+	
+	<select id="killByProcedure" parameterType="map" statementType="CALLABLE" resultType="int">
+	<![CDATA[ 
+		{call execute_seckill(
+		#{username,jdbcType=VARCHAR,mode=IN},
+		#{pwd,jdbcType=VARCHAR,mode=IN},
+		#{count,jdbcType=INTEGER,mode=OUT}
+		)}
+	]]>
+	</select>
+	
+	<!--生成cno-->
+<!-- 	<select id="getMinCno" statementType="CALLABLE" parameterType="java.util.HashMap" resultType="java.util.Map"> -->
+<!-- 		<![CDATA[ -->
+<!-- 		{call cpa_noacct_cno_create_pro -->
+<!-- 		(#{pre,mode=IN,jdbcType=VARCHAR}, -->
+<!-- 		 #{tableName,mode=IN,jdbcType=VARCHAR}, -->
+<!-- 		 #{colName,mode=IN,jdbcType=VARCHAR}, -->
+<!-- 		 #{length,mode=IN,jdbcType=INTEGER}, -->
+<!-- 		 #{minCno,mode=OUT,jdbcType=VARCHAR})} -->
+<!--        ]]> -->
+<!-- 	</select> -->
+	
+	
+</mapper>
