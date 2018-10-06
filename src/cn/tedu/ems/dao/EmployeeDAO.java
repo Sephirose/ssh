@@ -1,6 +1,7 @@
 package cn.tedu.ems.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -14,6 +15,9 @@ public interface EmployeeDAO {
 	public Employee findById(int id);
 	public void modify(Employee e);
 	public void delete(int id);
+	public List<Employee> findAllByMap(Map<String, Object> map);
+	public void addUnitPower(Map<String, Object> map);
+	public Map<String,Object> findName();
 	
 }
 

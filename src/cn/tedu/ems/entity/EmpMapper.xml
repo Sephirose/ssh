@@ -24,11 +24,29 @@
 	</select>
 	
 	
+	<select id="findName" resultType="map">
+		select name,age from emp
+	</select>
+	
+	
+	
 	<select id="findAllNum" 
 		resultType="Integer">
 		SELECT count(*) FROM emp
 	</select>
 	
+	<select id="findAllByMap" resultType="cn.tedu.ems.entity.Employee" parameterType="map">
+		select * from emp 
+		where 1=1
+		<if test="id1!=null and address !=''">
+            and id = #{id1}
+        </if>
+        <if test="age!=null and age !=''">
+            and age = #{age}
+        </if>
+	</select>
+
+
 	
 	<select id="findById" 
 		parameterType="int" 
